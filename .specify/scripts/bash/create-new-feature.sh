@@ -280,7 +280,8 @@ if [ ${#BRANCH_NAME} -gt $MAX_BRANCH_LENGTH ]; then
 fi
 
 if [ "$HAS_GIT" = true ]; then
-    git checkout -b "$BRANCH_NAME"
+    >&2 echo "[specify] Skipping new branch creation: $BRANCH_NAME"
+    # git checkout -b "$BRANCH_NAME"
 else
     >&2 echo "[specify] Warning: Git repository not detected; skipped branch creation for $BRANCH_NAME"
 fi
